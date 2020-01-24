@@ -1,0 +1,11 @@
+C:\source\codeworks\ta\console-game-csharp\bin\Debug\netcoreapp3.0\console-game-csharp.exe
+C:\source\codeworks\ta\console-game-csharp\bin\Debug\netcoreapp3.0\console-game-csharp.deps.json
+C:\source\codeworks\ta\console-game-csharp\bin\Debug\netcoreapp3.0\console-game-csharp.runtimeconfig.json
+C:\source\codeworks\ta\console-game-csharp\bin\Debug\netcoreapp3.0\console-game-csharp.runtimeconfig.dev.json
+C:\source\codeworks\ta\console-game-csharp\bin\Debug\netcoreapp3.0\console-game-csharp.dll
+C:\source\codeworks\ta\console-game-csharp\bin\Debug\netcoreapp3.0\console-game-csharp.pdb
+C:\source\codeworks\ta\console-game-csharp\obj\Debug\netcoreapp3.0\console-game-csharp.csprojAssemblyReference.cache
+C:\source\codeworks\ta\console-game-csharp\obj\Debug\netcoreapp3.0\console-game-csharp.AssemblyInfoInputs.cache
+C:\source\codeworks\ta\console-game-csharp\obj\Debug\netcoreapp3.0\console-game-csharp.AssemblyInfo.cs
+C:\source\codeworks\ta\console-game-csharp\obj\Debug\netcoreapp3.0\console-game-csharp.dll
+C:\source\codeworks\ta\console-game-csharp\obj\Debug\netcoreapp3.0\console-game-csharp.pdb

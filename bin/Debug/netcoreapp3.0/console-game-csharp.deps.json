@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.0": {
+      "console-game-csharp/1.0.0": {
+        "runtime": {
+          "console-game-csharp.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "console-game-csharp/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
