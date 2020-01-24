@@ -54,7 +54,7 @@ namespace ConsoleAdventure.Project
       }
       else
       {
-        Messages.Add("You cannot go that way, try reading the exits or something geez... \n");
+        Messages.Add("You cannot go that way");
         var exits = _game.CurrentRoom.Exits;
         string template = "This room has the following exits: \n";
         foreach (var e in exits)
@@ -125,43 +125,7 @@ Commands:
 
     public void Dead()
     {
-      Messages.Add(@"You dared, and You were burninated!! 
-                                                                           
-                      ..,                   ,;,                            
-                       i;.                    .;                           
-                       ;  ,;:.               ,;,;                          
-       ,i::           .;..:;,:               :::,                          
-   .,;;, ;            ,..  :;,         ;       ;                           
-    ,:    ,,         ,, .:i        ,  :.      .;                           
-      ::.  .;.      ,:;.           .: ;                                    
-        .;.; .i.  ,;;;::::;;;:.    ;,1.1   ,;,                             
-          ,:::;:;.              .;;::;;:;;;;;:,                            
-              ;.                              ;      .:;:..;,     ....     
-       ,;;;;                        :,....   ,; .::..;;..;;:,.     ,;.     
-    ,;.       ;          :    .;;.   :1:;,;:,;  .;:..i:::,.     ::         
-   .:       .: ;.        .:       ,;,  .,;11:        ,i,.             .;;: 
-   ,,       i.  ;;        .;          :;::,,;  ,:::..1;:i:       .;;,      
-    ;   .,,   .;. .;.  ,,:;..;.                  :.  :;i        .::::;;,   
-   ;.    :;;::       .;:. .i,;:,;.                .;            ,::;:;;:,  
-   .;, ;   .;             :;.     .;,               :.         .;;,        
-    .;. :;, ,:               .;.     .;.             .: ..  ;1;,.   .;;.   
-       ::   ,,.                 ,:      ;.             :.:,;, ,;.   .,::,  
-         .i .,if.                 ;      :,             .i;. .::.:,        
-          :.   .i                 :       ;               .;     .:.       
-           .,,.                   ;       :                                
-                            ,,   .:      .:                                
-                         .  .:  ,i       ;                                 
-                     :,  ;:  .:,:      ,:                                  
-                ;i.  :,, ; :,,;      ,:      )   )          (    (      (      
-                  :;;i::;;;:.     .;,      ( /(( /(          )\ ) )\ )   )\ )  
-                     .:,:,...:;;;.         )\())\())    (   (()/((()/(( (()/(  
-                         ,.   ;           ((_)((_)\     )\   /(_))/(_))\ /(_))  
-                         ;    ;          __ ((_)((_) _ ((_) (_))_(_))((_|_))_   
-                         ;    ;          \ \ / / _ \| | | |  |   \_ _| __|   \  
-                        .,    :;:.        \ V / (_) | |_| |  | |) | || _|| |) | 
-                        :.                 |_| \___/ \___/   |___/___|___|___/ 
-                                                                               
-                    Press r to restart or q to quit
+      Messages.Add(@"You have died, Press r to restart or q to quit
       ");
       _game.CurrentRoom.Exits.Clear();
       _game.CurrentPlayer.Inventory.Clear();
@@ -170,9 +134,6 @@ Commands:
     {
     }
 
-    ///<summary>
-    ///Restarts the game 
-    ///</summary>
     public void Reset()
     {
       _game.CurrentPlayer.Inventory.Clear();
@@ -187,7 +148,6 @@ Commands:
     {
     }
 
-    ///<summary>When taking an item be sure the item is in the current room before adding it to the player inventory, Also don't forget to remove the item from the room it was picked up in</summary>
     public void TakeItem(string itemName)
     {
       Item i = _game.CurrentRoom.Items.Find(item => item.Name == itemName); //searches room items for typed item. Compare typed name, with item names in room list.
@@ -201,11 +161,6 @@ Commands:
       _game.CurrentRoom.Items.Remove(i); //Remove from room list
     }
 
-    ///<summary>
-    ///No need to Pass a room since Items can only be used in the CurrentRoom
-    ///Make sure you validate the item is in the room or player inventory before
-    ///being able to use the item
-    ///</summary>
     public void UseItem(string itemName)
     {
       Item i = _game.CurrentPlayer.Inventory.Find(item => item.Name == itemName);
@@ -216,18 +171,7 @@ Commands:
 
       else if (_game.CurrentRoom.Trapped == true && itemName == "grumblecakes")
       {
-        Messages.Add($"The mighty Trogdor is hit with { i.Description}, Trogdor winces in pain, then gives you a thumbs - up with his big BEEFY arm... and flies away.\n");
-        Messages.Add("You probably thought Trogdor would be killed...of course Trogdor can not die.. he is Trogdor! \n");
-        Messages.Add(@"
-             )   )                    (       )   ________ 
-          ( /(( /(          (  (      )\ ) ( /(  |   /   / 
-          )\())\())    (    )\))(   '(()/( )\()) |  /|  /  
-         ((_)((_)\     )\  ((_)()\ )  /(_)|(_)\  | / | /   
-        __ ((_)((_) _ ((_) _(())\_)()(_))  _((_) |/  |/    
-        \ \ / / _ \| | | | \ \((_)/ /|_ _|| \| |(   (      
-         \ V / (_) | |_| |  \ \/\/ /  | | | .` |)\  )\     
-          |_| \___/ \___/    \_/\_/  |___||_|\_((_)((_)          
-        ");
+        Messages.Add($"He is hit with { i.Description}.\n");
         Messages.Add("Not very original or great, or fun in any way...Oh well.. \n");
         _game.CurrentRoom.Description = "This room is empty, but also full of you winny-ness and glory and such...\n";
         Messages.Add("Press r to restart the game, or q to quit. \n");
