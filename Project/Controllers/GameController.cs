@@ -20,9 +20,7 @@ namespace ConsoleAdventure.Project.Controllers
 
     public void GetUserInput()
     {
-      Console.WriteLine(@"What would you like to do?
-[Type l to look around, type h for Help, q to Quit]
-      ");
+      Console.WriteLine(@"What would you like to do?" + "\n" + "\n" + "[Type l to look around, type h for Help, q to Quit]");
       string input = Console.ReadLine().ToLower() + " ";
       string command = input.Substring(0, input.IndexOf(" "));
       string option = input.Substring(input.IndexOf(" ") + 1).Trim();
@@ -86,9 +84,7 @@ Commands:
 
     private void Print()
     {
-      System.Console.WriteLine(@"                                                    
-      Welcome
-      ");
+      System.Console.WriteLine(@"Castle Grimtol" + "\n");
       foreach (string message in _gameService.Messages)
       {
         Console.WriteLine(message);

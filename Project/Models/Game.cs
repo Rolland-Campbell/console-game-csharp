@@ -12,12 +12,13 @@ namespace ConsoleAdventure.Project.Models
     public void Setup()
     {
       //Creating Rooms
-      IRoom Room0 = new Room("start", "You are at the front of a cave.", false, false);
-      IRoom Room1 = new Room("hallway 1", "hallway desc 1", false, false);
-      IRoom Room2 = new Room("hallway 2", "hallway desc 2", false, false);
+      IRoom Room0 = new Room("Outside", "You are standing outside of a long abandoned castle. \nThe once proud gates are rusted. One door lays on the ground. \nIt appears to have been riped from it's hinges. \n", false, false);
+      IRoom Room1 = new Room("the Gatehouse", "The gate house is dark. Not much remains in this room. \nMost of the items have been scavenged or destroyed by time.\n", false, false);
+      IRoom Room2 = new Room("the Courtyard", "The courtyard is overgrown with weeds and roots. \nSkeletal remains of what appear to have been livestock clutter the ground. \n", false, false);
+      IRoom Room3 = new Room("the Main Keep Entry", "The main keep entry is full of broken furniture. \nIt appears that someone had tried to construct a barricade against something \n... big \n", false, false);
+      IRoom Room4 = new Room("the Armory", "This room is also in a state of disrepair. \nBroken items litter the floor. \n", false, false);
       IRoom Death = new Room("Death Room", "death desc 1", false, true);
-      IRoom Room3 = new Room("hallway 3", "hallway desc 3", false, false);
-      IRoom Trogdor = new Room("end room", "end desc 1", true, false);
+      IRoom Win = new Room("end room", "end desc 1", true, false);
 
       //Connecting Rooms
       Room0.AddExits("east", Room1);
@@ -27,20 +28,24 @@ namespace ConsoleAdventure.Project.Models
 
       Room2.AddExits("east", Room3);
       Room2.AddExits("west", Room1);
-      Room2.AddExits("south", Death);
+      Room2.AddExits("south", Room4);
 
       Room3.AddExits("west", Room2);
-      Room3.AddExits("north", Trogdor);
+      Room3.AddExits("north", Win);
 
-      Trogdor.AddExits("south", Room3);
+      Room4.AddExits("north", Room2);
+
+      Win.AddExits("south", Room3);
 
       //Add items
-      Item Item1 = new Item("key", "an ordinary key");
+      Item Item1 = new Item("key", "an old rusty key");
       Item Item2 = new Item("sword", "a rusty sword");
+      Item Item3 = new Item("shield", "a tarnished metal shield");
 
       //Item locations
       Room0.Items.Add(Item1);
       Room3.Items.Add(Item2);
+      Room4.Items.Add(Item3);
 
       CurrentRoom = Room0;
     }
@@ -54,7 +59,7 @@ namespace ConsoleAdventure.Project.Models
 
     public void GetTemplate()
     {
-      System.Console.WriteLine(@"Welcome");
+      System.Console.WriteLine(@"" + "\n" + "After being thrown from your horse, you trudge through the swamp." + "\n" + "Eventually you come to an abandoned castle." + '\n' + "The once proud gates are rusted. One door lays on the ground." + "\n" + "It appears to have been riped from it's hinges." + "\n");
     }
   }
 }

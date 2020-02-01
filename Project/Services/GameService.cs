@@ -20,7 +20,7 @@ namespace ConsoleAdventure.Project
       if (_game.CurrentRoom.Exits.ContainsKey(direction))
       {
         _game.CurrentRoom = _game.CurrentRoom.Exits[direction];
-        Messages.Add($"You have moved to {_game.CurrentRoom.Name}");
+        Messages.Add($"You have moved to {_game.CurrentRoom.Name} \n");
         Messages.Add(_game.CurrentRoom.Description);
 
         if (_game.CurrentRoom.Dead == true)
@@ -35,16 +35,16 @@ namespace ConsoleAdventure.Project
         {
           template += $"{e.Key} \n";
         }
-        Messages.Add("This room has the following exits: \n" + template);
+        Messages.Add("From here you can go: \n" + template);
 
 
         if (_game.CurrentRoom.Items.Count == 0)
         {
-          Messages.Add("There are no items in the room \n");
+          Messages.Add("You search around but find nothing. \n");
           return;
         }
         var items = _game.CurrentRoom.Items;
-        string templateItem = "The following items are in the room: \n";
+        string templateItem = "You see the following items: \n";
         foreach (var i in items)
         {
           templateItem += $"{i.Name}: {i.Description} \n";
@@ -56,7 +56,7 @@ namespace ConsoleAdventure.Project
       {
         Messages.Add("You cannot go that way");
         var exits = _game.CurrentRoom.Exits;
-        string template = "This room has the following exits: \n";
+        string template = "From here you can go: \n";
         foreach (var e in exits)
         {
           template += $"{e.Key} \n";
@@ -102,7 +102,7 @@ Commands:
       Messages.Add($"{_game.CurrentRoom.Name} \n");
       Messages.Add($"{_game.CurrentRoom.Description} \n");
       var exits = _game.CurrentRoom.Exits;
-      string template = "This room has the following exits: \n";
+      string template = "From here you can go: \n";
       foreach (var e in exits)
       {
         template += $"{e.Key} \n";
@@ -111,11 +111,11 @@ Commands:
 
       if (_game.CurrentRoom.Items.Count == 0)
       {
-        Messages.Add("There are no items in the room \n");
+        Messages.Add("You search around but find nothing. \n");
         return;
       }
       var items = _game.CurrentRoom.Items;
-      string templateItem = "The following items are in the room: \n";
+      string templateItem = "You see the following items: \n";
       foreach (var i in items)
       {
         templateItem += $"{i.Name}: {i.Description} \n";
@@ -177,7 +177,7 @@ Commands:
         Messages.Add("Press r to restart the game, or q to quit. \n");
 
       }
-      else Messages.Add($"You use your {i}! It has no effect and falls to the floor... \n");
+      else Messages.Add($"You use your {i.Name}! It has no effect and falls to the floor... \n");
       _game.CurrentPlayer.Inventory.Remove(i);
       _game.CurrentRoom.Items.Add(i);
     }
