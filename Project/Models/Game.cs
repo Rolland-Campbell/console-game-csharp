@@ -12,8 +12,8 @@ namespace ConsoleAdventure.Project.Models
     public void Setup()
     {
       //Creating Rooms
-      IRoom Room0 = new Room("Outside", "You are standing outside of a long abandoned castle. \nThe once proud gates are rusted. One door lays on the ground. \nIt appears to have been riped from it's hinges. \n", false, false);
-      IRoom Room1 = new Room("the Gatehouse", "The gate house is dark. Not much remains in this room. \nMost of the items have been scavenged or destroyed by time.\n", false, false);
+      IRoom Room0 = new Room("Outside", "\nYou are standing outside of a long abandoned castle. \nThe once proud gates are rusted. One door lays on the ground. \nIt appears to have been riped from it's hinges. \n", false, false);
+      IRoom Room1 = new Room("the Gatehouse", "The gate house is dark. Not much remains in this room. \nMost of the items have been scavenged or destroyed by time.\nA long dead guard lays in the corner. His armor is rusted, \nclothing rotted, and parts of him have been dragged off by scavaengers. \n", false, false);
       IRoom Room2 = new Room("the Courtyard", "The courtyard is overgrown with weeds and roots. \nSkeletal remains of what appear to have been livestock clutter the ground. \n", false, false);
       IRoom Room3 = new Room("the Main Keep Entry", "The main keep entry is full of broken furniture. \nIt appears that someone had tried to construct a barricade against something \n... big \n", false, false);
       IRoom Room4 = new Room("the Armory", "This room is also in a state of disrepair. \nBroken items litter the floor. \n", false, false);
@@ -43,7 +43,7 @@ namespace ConsoleAdventure.Project.Models
       Item Item3 = new Item("shield", "a tarnished metal shield");
 
       //Item locations
-      Room0.Items.Add(Item1);
+      Room1.Items.Add(Item1);
       Room3.Items.Add(Item2);
       Room4.Items.Add(Item3);
 
@@ -59,7 +59,26 @@ namespace ConsoleAdventure.Project.Models
 
     public void GetTemplate()
     {
-      System.Console.WriteLine(@"" + "\n" + "After being thrown from your horse, you trudge through the swamp." + "\n" + "Eventually you come to an abandoned castle." + '\n' + "The once proud gates are rusted. One door lays on the ground." + "\n" + "It appears to have been riped from it's hinges." + "\n");
+      System.Console.WriteLine(@"
+                                  |>>>
+                                  |
+                    |>>>      _  _|_  _         |>>>
+                    |        |;| |;| |;|        |
+                _  _|_  _    \\.    .  /    _  _|_  _
+               |;|_|;|_|;|    \\:. ,  /    |;|_|;|_|;|
+               \\..      /    ||;   . |    \\.    .  /
+                \\.  ,  /     ||:  .  |     \\:  .  /
+                 ||:   |_   _ ||_ . _ | _   _||:   |
+                 ||:  .|||_|;|_|;|_|;|_|;|_|;||:.  |
+                 ||:   ||.    .     .      . ||:  .|
+                 ||: . || .     . .   .  ,   ||:   |       \,/
+                 ||:   ||:  ,  _______   .   ||: , |            /`\
+                 ||:   || .   /+++++++\    . ||:   |
+                 ||:   ||.    |+++++++| .    ||: . |
+              __ ||: . ||: ,  |+++++++|.  . _||_   |
+     ____--`~    '--~~__|.    |+++++__|----~    ~`---,              ___
+-~--~                   ~---__|,--~'                  ~~----_____-~'   `~----~~
+      " + "\n" + "After being thrown from your horse, you trudge through the swamp." + "\n" + "Eventually you come to an abandoned castle." + '\n' + "The once proud gates are rusted. One door lays on the ground." + "\n" + "It appears to have been riped from it's hinges." + "\n");
     }
   }
 }
