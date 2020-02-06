@@ -54,7 +54,7 @@ namespace ConsoleAdventure.Project
       string help = @"
 Commands:
     i: Show your current inventory.
-    l: Look around for a description of the current room.
+    s: search the current room.
     take (item name): Picks up item with that name.
     go (direction [North, East, West, South]): Moves you to the next room.
     use (item name): Use the item from your inventory.
@@ -155,7 +155,7 @@ Commands:
         Messages.Add($"You do not seem to have a {itemName}. \n");
       }
 
-      if (_game.CurrentRoom.Trapped == true && itemName == "key")
+      else if (_game.CurrentRoom.Trapped == true && itemName == "key")
       {
         Messages.Add($"You use the { i.Name}.\n");
         Messages.Add("You hear a series of click and the sound of tumblers rolling. \nA hidden door slides open to the south! \n");

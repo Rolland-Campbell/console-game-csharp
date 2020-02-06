@@ -20,7 +20,7 @@ namespace ConsoleAdventure.Project.Controllers
 
     public void GetUserInput()
     {
-      Console.WriteLine(@"What would you like to do?" + "\n" + "\n" + "[Type l to look around, type h for Help, q to Quit]");
+      Console.WriteLine(@"What would you like to do?" + "\n" + "\n" + "[Type s to search the area, type h for Help, q to Quit]");
       string input = Console.ReadLine().ToLower() + " ";
       string command = input.Substring(0, input.IndexOf(" "));
       string option = input.Substring(input.IndexOf(" ") + 1).Trim();
@@ -41,7 +41,7 @@ namespace ConsoleAdventure.Project.Controllers
           Console.Clear();
           Print();
           break;
-        case "l":
+        case "s":
           _gameService.Look();
           Console.Clear();
           Print();
@@ -70,7 +70,7 @@ namespace ConsoleAdventure.Project.Controllers
 That is not a command 
 Commands:
     i: Show your current inventory.
-    l: Look around for a description of the current room.
+    s: search the area.
     take (item name): Picks up item with that name.
     go (direction [North, East, West, South]): Moves you to the next room.
     use (item name): Use the item from your inventory.
