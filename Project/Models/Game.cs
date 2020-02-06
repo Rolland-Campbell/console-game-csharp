@@ -18,7 +18,7 @@ namespace ConsoleAdventure.Project.Models
       IRoom Room3 = new Room("the Main Keep Entry", "The main keep entry is full of broken furniture. \nIt appears that someone had tried to construct a barricade against something \n... big \nYou see a blocked door to the south. \n", true, false);
       IRoom Room4 = new Room("the Armory", "This room is also in a state of disrepair. \nBroken items litter the floor. \n", false, false);
       IRoom Locked = new Room("Locked Room", "This room is untouched by whatever has befallen the rest of the castle. \nThe only object in the room is a pedistal with a gleaming sword.", false, false);
-      IRoom Win = new Room("the Throne Room", "This room was once a grand throne room. Tattered tapestrys and banners hang on the walls. \nOn the throne at the far end of the room sits a massive undead giant. \nAs you enter the room it slowly lifts its head and stares at you with his one remaining eye. \nIn a dry, raspy voice he says, you dare enter my kingdom. You have no claim to its treasures, I took it by force many years ago. /nThe giants slowly rises from the throne, dust and debris fall from him. /nHe grabs a massive axe from beside the throne and approaches.", false, false);
+      IRoom Win = new Room("the Throne Room", "This room was once a grand throne room. Tattered tapestrys and banners hang on the walls. \nOn the throne at the far end of the room sits a massive undead giant. \nAs you enter the room it slowly lifts its head and stares at you with his one remaining eye. \nIn a dry, raspy voice he says, you dare enter my kingdom. You have no claim to its treasures, I took it by force many years ago. \nThe giants slowly rises from the throne, dust and debris fall from him. \nHe grabs a massive axe from beside the throne and approaches.", false, true);
 
       //Connecting Rooms
       Room0.AddExits("east", Room1);
@@ -42,12 +42,13 @@ namespace ConsoleAdventure.Project.Models
 
       //Add items
       Item Item1 = new Item("key", "an old rusty key");
-      Item Item2 = new Item("Gleaming sword", "a shiny sword with glowing runes etched in the blade.");
+      Item Item2 = new Item("sword", "a shiny sword with glowing runes etched in the blade.");
       Item Item3 = new Item("shield", "a tarnished metal shield");
 
       //Item locations
       Room1.Items.Add(Item1);
       Locked.Items.Add(Item2);
+      Room3.Items.Add(Item2);
       Room4.Items.Add(Item3);
 
       CurrentRoom = Room0;
