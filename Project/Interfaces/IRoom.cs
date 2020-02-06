@@ -9,9 +9,13 @@ namespace ConsoleAdventure.Project.Interfaces
     string Description { get; set; }
     List<Item> Items { get; set; }
     Dictionary<string, IRoom> Exits { get; set; }
+    Dictionary<string, IRoom> Locked { get; set; }
+
     bool Trapped { get; set; }
     bool Dead { get; set; }
 
     void AddExits(string direction, IRoom room);
+
+    void AddLocked(string direction, IRoom room);
   }
 }

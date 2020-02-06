@@ -12,10 +12,15 @@ namespace ConsoleAdventure.Project.Models
     public Dictionary<string, IRoom> Exits { get; set; }
     public bool Trapped { get; set; }
     public bool Dead { get; set; }
-
+    public Dictionary<string, IRoom> Locked { get; set; }
     public void AddExits(string direction, IRoom room)
     {
       Exits.Add(direction, room);
+    }
+
+    public void AddLocked(string direction, IRoom room)
+    {
+      Locked.Add(direction, room);
     }
 
     public Room(string name, string description, bool trapped, bool dead)
@@ -26,6 +31,7 @@ namespace ConsoleAdventure.Project.Models
       Exits = new Dictionary<string, IRoom>();
       Trapped = trapped;
       Dead = dead;
+      Locked = new Dictionary<string, IRoom>();
     }
   }
 }

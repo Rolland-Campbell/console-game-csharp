@@ -36,21 +36,6 @@ namespace ConsoleAdventure.Project
           template += $"{e.Key} \n";
         }
         Messages.Add("From here you can go: \n" + template);
-
-
-        if (_game.CurrentRoom.Items.Count == 0)
-        {
-          Messages.Add("You search around but find nothing. \n");
-          return;
-        }
-        var items = _game.CurrentRoom.Items;
-        string templateItem = "You see the following items: \n";
-        foreach (var i in items)
-        {
-          templateItem += $"{i.Name}: {i.Description} \n";
-        }
-        Messages.Add(templateItem);
-
       }
       else
       {
@@ -112,10 +97,11 @@ Commands:
       if (_game.CurrentRoom.Items.Count == 0)
       {
         Messages.Add("You search around but find nothing. \n");
+
         return;
       }
       var items = _game.CurrentRoom.Items;
-      string templateItem = "You see the following items: \n";
+      string templateItem = "You search around and find the following items: \n";
       foreach (var i in items)
       {
         templateItem += $"{i.Name}: {i.Description} \n";
@@ -169,13 +155,18 @@ Commands:
         Messages.Add($"You do not seem to have a {itemName}. \n");
       }
 
-      else if (_game.CurrentRoom.Trapped == true && itemName == "grumblecakes")
+      if (_game.CurrentRoom.Trapped == true && itemName == "key")
       {
-        Messages.Add($"He is hit with { i.Description}.\n");
-        Messages.Add("Not very original or great, or fun in any way...Oh well.. \n");
-        _game.CurrentRoom.Description = "This room is empty, but also full of you winny-ness and glory and such...\n";
-        Messages.Add("Press r to restart the game, or q to quit. \n");
-
+        Messages.Add($"You use the { i.Name}.\n");
+        Messages.Add("You hear a series of click and the sound of tumblers rolling. \nA hidden door slides open to the south! \n");
+        var exits = _game.CurrentRoom.Exits;
+        // var locked = _game.CurrentRoom.Locked;
+        string template = "From here you can go: \n";
+        foreach (var e in exits)
+        {
+          template += $"{e.Key} \n";
+        }
+        Messages.Add(template);
       }
       else Messages.Add($"You use your {i.Name}! It has no effect and falls to the floor... \n");
       _game.CurrentPlayer.Inventory.Remove(i);
