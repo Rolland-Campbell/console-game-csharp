@@ -115,14 +115,11 @@ Commands:
     {
     }
 
-    public static void Restart();
-    // public void Reset()
-    // {
-    //   Environment.Restarts();
-    //   _game.CurrentPlayer.Inventory.Clear();
-    //   _game.CurrentRoom.Items.Clear();
-    //   _game.Setup();
-    // }
+    public void Reset()
+    {
+      _game.CurrentPlayer.Inventory.Clear();
+      _game.CurrentRoom.Items.Clear();
+    }
 
     public void Win()
     {

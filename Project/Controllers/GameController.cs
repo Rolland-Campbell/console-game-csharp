@@ -61,8 +61,8 @@ namespace ConsoleAdventure.Project.Controllers
           Print();
           break;
         case "r":
-          _gameService.Reset();
           Console.Clear();
+          Run();
           break;
         default:
           Console.Clear();
